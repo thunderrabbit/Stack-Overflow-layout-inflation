@@ -3,6 +3,7 @@ package com.stackoverflow.thunderrabbit.layout.inflation;
 import android.content.Context;
 import android.os.CountDownTimer;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
@@ -39,10 +40,12 @@ public class MainCountdown extends RelativeLayout {
 	}
 
 	public void vanish() {
+		Log.d(TAG,"vanish");
 		myView.setVisibility(View.GONE);
 	}
 
 	public void appear() {
+		Log.d(TAG,"appear");
 		myView.setVisibility(View.VISIBLE);
 	}
 
