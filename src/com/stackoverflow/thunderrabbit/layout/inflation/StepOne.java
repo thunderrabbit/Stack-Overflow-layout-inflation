@@ -7,32 +7,40 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-public class MainStart extends RelativeLayout {
+public class StepOne {
 	private final String TAG = this.getClass().getSimpleName();
 
 	private Context mContext;
 	private Main myParent;
-	private View myView;
+	private StepOneLayout myView;
 	private View myButton;
 
-	public MainStart(Context context) {
-		super(context);
-		mContext = context;
+	private class StepOneLayout extends RelativeLayout {
+		public StepOneLayout(Context context) {
+			super(context);
+			mContext = context;
+		}
+	
+		public StepOneLayout(Context context, AttributeSet attrs) {
+			super(context, attrs);
+			mContext = context;
+		}
+	
+		public StepOneLayout(Context context, AttributeSet attrs, int defStyle) {
+			super(context, attrs, defStyle);
+			mContext = context;
+		}
 	}
 
-	public MainStart(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		mContext = context;
-	}
-
-	public MainStart(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-		mContext = context;
+	public void init(Context _context)
+	{
+		myView = new StepOneLayout(_context);
 	}
 
 	public void inflateInto(ViewGroup _view_group)
 	{
-		myView = inflate(mContext, R.layout.main_start, _view_group);
+		myView.inflate(mContext, R.layout.main_start, _view_group);
+		vanish();
 		myButton = myView.findViewById(R.id.startcountdown);
 		myButton.setOnClickListener(startCountdownButtonListener);
 	}

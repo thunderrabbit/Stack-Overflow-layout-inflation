@@ -34,7 +34,6 @@ public class MainLast extends RelativeLayout {
 	public void inflateInto(ViewGroup _view_group)
 	{
 		myView = inflate(mContext, R.layout.main_last, _view_group);
-		vanish();
 		myButton = myView.findViewById(R.id.mainlast);
 		myButton.setOnClickListener(startOverButtonListener);
 	}
