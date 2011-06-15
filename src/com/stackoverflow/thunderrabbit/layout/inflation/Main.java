@@ -36,7 +36,8 @@ public class Main extends Activity {
 		mMainLast.whoIsMyDaddy(this);
 
 		mMainTop = (RelativeLayout) findViewById(R.id.root_main);
-		addViews(mMainTop);
+//		addViews(mMainTop);
+		step1();
 	}
 
 	private void addViews(ViewGroup _add_views_to)
@@ -47,6 +48,11 @@ public class Main extends Activity {
 		go();
 	}
 
+	private void step1()
+	{
+		mMainTop.removeAllViews();
+		mMainStart.inflateInto(mMainTop);
+	}
 	// display the first class, a text field button
 	private void go()
 	{
@@ -58,8 +64,11 @@ public class Main extends Activity {
 	public void startCountdown()
 	{
 		Log.d(TAG,"startCountdown()");
-		mMainStart.vanish();
-		mMainCountdown.appear();
+//		mMainStart.vanish();
+//		mMainCountdown.appear();
+		mMainTop.removeAllViews();
+		mMainCountdown.inflateInto(mMainTop);
+
 		mMainCountdown.countdown();
 	}
 
@@ -67,14 +76,17 @@ public class Main extends Activity {
 	public void countdownFinished()
 	{
 		Log.d(TAG,"countdownFinished()");
-		mMainCountdown.vanish();
-		mMainLast.appear();
+//		mMainCountdown.vanish();
+//		mMainLast.appear();
+		mMainTop.removeAllViews();
+		mMainLast.inflateInto(mMainTop);
 	}
 
 	// when user clicks "again?" do it all again
 	public void startOver() {
 		Log.d(TAG,"startOver()");
-		mMainLast.vanish();
-		go();
+//		mMainLast.vanish();
+//		go();
+		step1();
 	}
 }

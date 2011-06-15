@@ -35,7 +35,6 @@ public class MainCountdown extends RelativeLayout {
 	public void inflateInto(ViewGroup _view_group)
 	{
 		myView = inflate(mContext, R.layout.main_countdown, _view_group);
-		vanish();
 		mCountdownText = (TextView) myView.findViewById(R.id.countdown);
 	}
 
